@@ -1,6 +1,7 @@
 import boto3
 import json
 
+
 def lambda_handler(event, context):
     # Replace 'apiStreamData25_10' with your Kinesis Data Stream name
     stream_name = 'apiStreamData25_10'
@@ -19,7 +20,7 @@ def lambda_handler(event, context):
         data = json.load(f)
 
     # Serialize the data to bytes
-    data_bytes = json.dumps(data).encode('utf-8')
+    data_bytes = bytes(json.dumps(data).encode('utf-8'))
 
     response = kinesis_client.put_record(
         StreamName=stream_name,
