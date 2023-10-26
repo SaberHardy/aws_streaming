@@ -8,20 +8,12 @@ def lambda_handler(event, context):
     kinesis_stream_name = "api_stream_kinesis_26_10"
 
     try:
-        # Fetch data from the API without using the requests library
         with urllib.request.urlopen(api_url) as response:
             data = json.loads(response.read().decode())
 
-        # Send the data to the Kinesis stream
+        user_json = json.dumps(data)
+
         kinesis_client = boto3.client('kinesis')
-
-        print(f"Data ====> {data}")
-        new_l = []
-        for user in data:
-            new_l.append(user)
-
-        user_json = json.dumps(new_l)
-
         kinesis_client.put_record(
             StreamName=kinesis_stream_name,
             Data=user_json,
