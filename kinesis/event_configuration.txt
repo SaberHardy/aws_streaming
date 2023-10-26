@@ -1,0 +1,20 @@
+{
+  "Records": [
+    {
+      "kinesis": {
+        "kinesisSchemaVersion": "1.0",
+        "partitionKey": "123",
+        "data": "base64-encoded-data",
+        "sequenceNumber": "1234567890",
+        "approximateArrivalTimestamp": 1510772165.23
+      },
+      "eventSource": "aws:kinesis",
+      "eventVersion": "1.0",
+      "eventID": "shardId-000000000001:49545115243490985018280067714973144582180062593244200961",
+      "eventName": "aws:kinesis:record",
+      "invokeIdentityArn": "arn:aws:iam::EXAMPLE",
+      "awsRegion": "us-east-1",
+      "eventSourceARN": "arn:aws:kinesis:us-east-1:123456789012:stream/apiStreamData25_10"
+    }
+  ]
+}
